@@ -23,6 +23,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
+//GTB：+ controller层使用了@WebMvcTest，以及指定了测试的class，很不错。
+//TODO GTB：考虑下将POST的测试也加上？
 @WebMvcTest(TeamMemberResource.class)
 public class TeamMemberResourceTest {
     @Autowired
@@ -44,5 +46,5 @@ public class TeamMemberResourceTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].name").value("111"));
     }
-    
+
 }
