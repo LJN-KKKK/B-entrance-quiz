@@ -26,7 +26,7 @@ public class TeamMemberResource {
     //TODO GTB: BUG，无法创建新学员
     //TODO GTB: 如果不是自定义返回请求，可以省略ResponseEntity
     public ResponseEntity<Void> createTeamMember(@RequestBody TeamMemberRequest request) {
-        //TODO GTB：既然接收的时候是TeamMemberRequest，那么直接将TeamMemberRequest传进去，在做业务关系映射的时候，再去转换成entity
+        //TODO GTB：request在做entity映射的时候，应该是Request to Entity，而非Entity调用Request进行转换
         teamService.save(new TeamMember(request));
         //TODO GTB：看下@ResponseStatus的用法
         return ResponseEntity.status(CREATED).build();
